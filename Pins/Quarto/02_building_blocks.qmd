@@ -1,6 +1,6 @@
 ---
-title: 'Getting Started'
-output: html_notebook
+title: "02_building_blocks"
+format: html
 ---
 
 # Adverse Events

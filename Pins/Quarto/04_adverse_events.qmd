@@ -1,7 +1,8 @@
 ---
 title: "Adverse Events"
-output:
-  flexdashboard::flex_dashboard:
+author: Adverse Events Dashboard
+format: 
+  dashboard:
     orientation: columns
     theme: readable
     vertical_layout: fill
@@ -55,14 +56,14 @@ age <- create_age(20,65)
 
 # adverse <- pin_get("Adverse", board = "rsconnect") %>% group_by(term) %>% summarise(count = sum(count))
 
+#Update account below
 library(pins)
 board <- board_connect()
 adverse <-pin_read(board, "YourConnectName/adverse")
 
 ```
 
-Column 
------------------------------------------------------------------------
+## Column
 
 ### All Events
 
@@ -83,18 +84,21 @@ adverse %>%
 
 
 
-Column 
------------------------------------------------------------------------
+## Column
 
 ### Age Range
 
 ```{r}
+#| content: valuebox
+#| title: "Age Range"
+#| icon: pencil
+#| color: primary
 age_label <- str_replace_all(age, fixed("+"), " ") %>% 
     str_replace(fixed("["), "") %>% 
     str_replace(fixed("]"), "") %>% 
     str_replace(fixed("TO"), "-")     
 
-valueBox(age_label, icon = 'glyphicon-user')
+valueBox(age_label)
 ```
 
 ### Events by Gender

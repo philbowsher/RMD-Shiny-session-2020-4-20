@@ -33,7 +33,7 @@ Column {.sidebar}
 #This was replaced by pins pull
 
 library(pins)
-board <- board_register_rsconnect()
+board <- board_connect()
 adverseBase <-pin_read(board, "YourConnectName/adverse")
 
 drugs <- unique(adverseBase$drug)
